@@ -77,6 +77,6 @@ function handleNoClick() {
 
 function handleYesClick() {
     fetch("https://script.google.com/macros/s/AKfycbznfjxS6xmKGeDq11WVVFL-fuVVTbylbUWTn4EGXASyRcoZmfP82CYtWnPXzI9FOvbJiQ/exec")
-    alert("Your response has been recorded!");
+    alert("Your response has been recorded! No Take backs na ah. Final na yan.");
     window.location.href = "yes_page.html";
 }
