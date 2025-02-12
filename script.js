@@ -54,14 +54,14 @@
 })();
 */
 const messages = [
-    "Are you sure?",
-    "Really sure??",
-    "Sure sure sure?",
-    "Pleaseeeee...",
-    "Fatee :( Plsssss",
-    "If you say no, iiyak ako...",
-    "K then...",
-    "Jk lngg, say yes please! ❤️"
+    "No (Are you sure?)",
+    "No (Really sure??)",
+    "No (Sure sure sure?)",
+    "No (Pleaseeeee...)",
+    "No (Fatee :( Plsssss)",
+    "No (If you say no ulit, iiyak ako...)",
+    "No (K then...)",
+    "No (Jk lngg, say yes please! ❤️)"
 ];
 
 let messageIndex = 0;
