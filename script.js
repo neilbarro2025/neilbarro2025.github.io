@@ -76,10 +76,6 @@ function handleNoClick() {
 }
 
 function handleYesClick() {
+    fetch("https://script.google.com/macros/s/AKfycbznfjxS6xmKGeDq11WVVFL-fuVVTbylbUWTn4EGXASyRcoZmfP82CYtWnPXzI9FOvbJiQ/exec")
     window.location.href = "yes_page.html";
 }
-
-  document.getElementById("yes-button").addEventListener("click", function() {
-    fetch("https://script.google.com/macros/s/AKfycbznfjxS6xmKGeDq11WVVFL-fuVVTbylbUWTn4EGXASyRcoZmfP82CYtWnPXzI9FOvbJiQ/exec"); 
-    alert("Your response has been recorded!");
-  });
