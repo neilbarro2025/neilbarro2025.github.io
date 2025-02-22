@@ -11,7 +11,7 @@
     <meta http-equiv="expires" content="0" />
     <meta http-equiv="pragma" content="no-cache" />
     
-    <link rel="icon" href="assets/logo.webp" type="image/x-icon" />
+    <link rel="icon" href="assets/logo.png" type="image/x-icon" />
     
     <style>
 /* Loading Screen */
@@ -23,18 +23,18 @@
   background: #fff5f8;
 }
 .staticrypt-spinner-container img {
-  width: 500px;
+  width: 70%;
   height: auto;
 }
 
 /* Poem Display */
 .poem-container {
   display: none;
-  height: 100vh;
+  height: 90%;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 20px;
+  font-size: 120%;
   color: #c2185b;
   font-family: 'Inter', sans-serif;
   background: #fff5f8;
@@ -91,6 +91,7 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   font-size: 18px;
+  margin: auto;
 }
 
 /* Title */
@@ -156,7 +157,7 @@ input[type="password"]:focus {
    <!-- Loading Animation -->
     <div id="staticrypt_loading" class="staticrypt-spinner-container">
       <div style="text-align: center;">
-        <img src="assets/cat1.gif" alt="Loading..." />
+        <img src="assets/cat2.gif" alt="Loading..." />
         <p style="margin-top: 10px; font-size: 18px; color: #c2185b; font-weight: 500; font-family: 'Inter', sans-serif;">
           Please wait, loading... 🐾
         </p>
@@ -174,7 +175,7 @@ input[type="password"]:focus {
       <div class="staticrypt-form">
         <p class="staticrypt-title">Hi, Fate!</p>
         <p>Please enter your password to login.</p>
-        <hr />
+        
 
         <form id="staticrypt-form">
           <input id="staticrypt-password" type="password" placeholder="Password" autofocus />
@@ -191,7 +192,7 @@ input[type="password"]:focus {
 
     <script>
       // Simulated password (change this to an actual hash verification)
-      const correctPassword = "Mallows123";
+      const correctPassword = "Tequila Pineapple";
 
       // Function to handle login attempts
       document.getElementById("staticrypt-form").addEventListener("submit", async function (e) {
