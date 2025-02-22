@@ -63,7 +63,7 @@ body {
 }
 .bubble span.message {
   opacity: 0;
-  line-height: 1.125;
+  
 }
 .bubble a {
   color: var(--a0);
