@@ -32,6 +32,7 @@ window.onload = function() {
     'Oh andddd',
     getCurrentTime(),
     '~ Neil',
+    '❤️'
   ]
 
   var getFontSize = function() {
