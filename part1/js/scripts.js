@@ -15,7 +15,7 @@ window.onload = function () {
   '<span style="color: black;">Each time you spoke, I wanted to hear what you had to say. Your perspectives on different subjects caught my curiosity. I admired the way you spoke, the way you always knew the right words to say. I was always ready to listen. But in those early days, the only time I could was in class, when our professors asked you questions, and you answered effortlessly, leaving them impressed and me in awe.</span>',
   '<span style="color: black;">I was entranced by you. Your beauty. Your elegance. Your passion. Your mind. Your movements. Your voice. I was curious. I was obsessed. And all I could do was watch from a distance, admiring you in silence as you worked. I admired everything you were, everything you said, everything you did.</span>',
   '<span style="color: black;">I couldn’t get you out of my head. To distract myself, I wanted to translate what I felt into something I could hold onto. I composed this piece to turn what I felt into music, something real, something I could always come back to.</span>',
-  '<span style="color: black;"><video src="assets/senticherde.mp4" controls preload="metadata" style="width:90%; margin-left:10%; padding-left: 10%; border-radius: 10px;"></video></span>',
+  '<span style="color: black;"><video src="assets/senticherde.mp4" controls preload="metadata" style="width:90%; border-radius: 10px;"></video></span>',
   '<span style="color: black;"><em>S\'enticher de</em> - 07/19/2024</span>',
   '<span style="color: black;">I named this piece “S\'enticher de”, a reflection of just how crazyyyyy I was for you. OA ba? Hehe. Anyway, in this piece my focus was to play with different intensities to show how my feelings were very inconsistent at the time. Still, there was one thing I was completely sure of, I liked you, and I had to make a move.</span>',
   '<span style="color: black;">And so… Monaco Grand Prix 2024 happened. A few drinks here, a few cries there, got drunk, and finally! I sent the message. This is where it all began.</span>',
@@ -50,18 +50,42 @@ window.onload = function () {
     return { bubble: bubbleEl, message: messageEl, loading: loadingEl }
   }
 
-  const getDimensions = function (elements) {
-    const messageW = elements.message.offsetWidth + 2
-    const messageH = elements.message.offsetHeight
-    const messageS = getComputedStyle(elements.bubble)
-    const paddingTop = Math.ceil(parseFloat(messageS.paddingTop))
-    const paddingLeft = Math.ceil(parseFloat(messageS.paddingLeft))
-    return {
-      loading: { w: '4rem', h: '2.25rem' },
-      bubble: { w: pxToRem(messageW + paddingLeft * 2), h: pxToRem(messageH + paddingTop * 2) },
-      message: { w: pxToRem(messageW), h: pxToRem(messageH) }
+const getDimensions = function(elements) {
+  const video = elements.message.querySelector('video');
+  let messageW, messageH;
+
+  if (video) {
+    // Use the video's intrinsic dimensions if available
+    // fallback to video client dimensions if naturalWidth/Height are zero
+    messageW = (video.videoWidth || video.clientWidth) || elements.message.offsetWidth;
+    messageH = (video.videoHeight || video.clientHeight) || elements.message.offsetHeight;
+  } else {
+    messageW = elements.message.offsetWidth;
+    messageH = elements.message.offsetHeight;
+  }
+  
+  messageW += 2; // small buffer for borders/margins
+
+  const messageS = getComputedStyle(elements.bubble);
+  const paddingTop = Math.ceil(parseFloat(messageS.paddingTop));
+  const paddingLeft = Math.ceil(parseFloat(messageS.paddingLeft));
+  
+  return {
+    loading: {
+      w: '4rem',
+      h: '2.25rem'
+    },
+    bubble: {
+      w: pxToRem(messageW + paddingLeft * 2),
+      h: pxToRem(messageH + paddingTop * 2)
+    },
+    message: {
+      w: pxToRem(messageW),
+      h: pxToRem(messageH)
     }
   }
+}
+
 
   const sendMessage = function (message, position = 'left') {
     const loadingDuration = (message.replace(/<(?:.|\n)*?>/gm, '').length * typingSpeed) + 500
