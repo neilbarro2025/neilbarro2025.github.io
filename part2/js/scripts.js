@@ -12,7 +12,7 @@ window.onload = function () {
   '<span style="color: black;">I like how she’s flawed, imperfect in ways that make her feel real and grounded. Her openness to plans shows her trust and willingness to be present. She can be both fiercely independent and quietly vulnerable, creating a duality that invites understanding rather than judgment.</span>',
   '<span style="color: black;">Fate is someone whose values and perspectives inspire admiration. She sees the beauty in things that others might overlook. She has the most artistic soul, reflected in her love for creating the most wonderful art and for appreciating art. She’s funny, cute, smart, and she brings a sense of warmth wherever she goes. She\'s just amazing. She\'s sunshine and beauty.</span>',
   '<span style="color: black;">Being with her feels like solving a beautiful puzzle, one that is full of surprises, not to fix, but to be studied and to admire each piece of her as it fits into place. She challenges me to grow, to be patient, and to see the world through her uniquely vibrant lens. Fate is, quite simply, a person you don’t just like, she\'s someone you love, admire, cherish, and endlessly want to understand.</span>',
-  '<a href="part2.html" style="text-decoration: none; color: purple;">(Next Page) Alone with you in the Ether... (Can’t wait to share this with you! Almost done.)</a>',
+  '<a href="part2.html" style="text-decoration: none; color: red;">(Next Page) Alone with you in the Ether... (Can’t wait to share this with you! Almost done.)</a>',
 ]
 
 
