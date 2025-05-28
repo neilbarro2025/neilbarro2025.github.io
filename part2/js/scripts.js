@@ -12,7 +12,7 @@ window.onload = function () {
   '<span style="color: black;">I like how she’s flawed, imperfect in ways that make her feel real and grounded. Her openness to plans shows her trust and willingness to be present. She can be both fiercely independent and quietly vulnerable, creating a duality that invites understanding rather than judgment.</span>',
   '<span style="color: black;">Fate is someone whose values and perspectives inspire admiration. She sees the beauty in things that others might overlook. She has the most artistic soul, reflected in her love for creating the most wonderful art and for appreciating art. She’s funny, cute, smart, and she brings a sense of warmth wherever she goes. She\'s just amazing. She\'s sunshine and beauty.</span>',
   '<span style="color: black;">Being with her feels like solving a beautiful puzzle, one that is full of surprises, not to fix, but to be studied and to admire each piece of her as it fits into place. She challenges me to grow, to be patient, and to see the world through her uniquely vibrant lens. Fate is, quite simply, a person you don’t just like, she\'s someone you love, admire, cherish, and endlessly want to understand.</span>',
-  '<a href="part2.html" style="text-decoration: none; color: purple;"><span style="color: black;">(Next Page) Alone with you in the Ether... (Can’t wait to share this with you! Almost done.)</span></a>',
+  '<a href="part2.html" style="text-decoration: none; color: purple;">(Next Page) Alone with you in the Ether... (Can’t wait to share this with you! Almost done.)</a>',
 ]
 
 
@@ -38,18 +38,43 @@ window.onload = function () {
     return { bubble: bubbleEl, message: messageEl, loading: loadingEl }
   }
 
-  const getDimensions = function (elements) {
-    const messageW = elements.message.offsetWidth + 2
-    const messageH = elements.message.offsetHeight
-    const messageS = getComputedStyle(elements.bubble)
-    const paddingTop = Math.ceil(parseFloat(messageS.paddingTop))
-    const paddingLeft = Math.ceil(parseFloat(messageS.paddingLeft))
-    return {
-      loading: { w: '4rem', h: '2.25rem' },
-      bubble: { w: pxToRem(messageW + paddingLeft * 2), h: pxToRem(messageH + paddingTop * 2) },
-      message: { w: pxToRem(messageW), h: pxToRem(messageH) }
-    }
+const getDimensions = function(elements) {
+  const image = elements.message.querySelector('img');
+  let messageW, messageH;
+
+  if (image) {
+    // Use the image's natural size if available, fallback to its client size
+    messageW = (image.naturalWidth || image.clientWidth) || elements.message.offsetWidth;
+    messageH = 245;
+  } else {
+    // Fallback to the message container size
+    messageW = elements.message.offsetWidth;
+    messageH = elements.message.offsetHeight;
   }
+
+  messageW += 2; // small buffer for borders/margins
+
+  const messageS = getComputedStyle(elements.bubble);
+  const paddingTop = Math.ceil(parseFloat(messageS.paddingTop));
+  const paddingLeft = Math.ceil(parseFloat(messageS.paddingLeft));
+  const paddingBottom = Math.ceil(parseFloat(messageS.paddingBottom));
+
+  return {
+    loading: {
+      w: '4rem',
+      h: '2.25rem'
+    },
+    bubble: {
+      w: pxToRem(messageW + paddingLeft * 2),
+      h: pxToRem(messageH + paddingTop + paddingBottom)
+    },
+    message: {
+      w: pxToRem(messageW),
+      h: pxToRem(messageH)
+    }
+  };
+}
+
 
   const sendMessage = function (message, position = 'left') {
     const loadingDuration = (message.replace(/<(?:.|\n)*?>/gm, '').length * typingSpeed) + 500
